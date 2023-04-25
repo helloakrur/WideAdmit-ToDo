@@ -20,3 +20,8 @@ mongoose
     })
     .then(() => console.log("Mongodb Connected..."))
     .catch((err) => console.error(err));
+
+    // Routes
+app.use(routes);
+
+app.listen(PORT, () => console.log("Server running on port " + PORT));
