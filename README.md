@@ -1,6 +1,6 @@
 # WideAdmit-ToDo
 
-It is made by using MERN stack and different npm package manager like axios, mongoose etc. Its well structured. The foler and the files are well struct like for the components, apis, controllers etc are assigned propoerly.
+It is made by using MERN stack and different npm package manager like axios, mongoose etc. The folder and the files are well struct like for the components, apis, controllers etc are assigned propoerly.
 
 How to run the code: 
 
