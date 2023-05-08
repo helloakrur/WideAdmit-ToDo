@@ -1,4 +1,4 @@
-# WideAdmit-ToDo
+# MERN stack ToDo app with Docker
 
 It is made by using MERN stack and different npm package manager like axios, mongoose etc. The folder and the files are well struct like for the components, apis, controllers etc are assigned propoerly. </br></br>
 How to run the code:  </br></br>
