@@ -1,21 +1,29 @@
-# Use the official Node.js Alpine image as the base image
-FROM node:alpine
+# Stage 1: Install dependencies
+FROM node:14-alpine AS install
 
-# Set the working directory in the container to /app
+# Set the working directory
 WORKDIR /app
 
-# Copy package.json and package-lock.json to the container's working directory
-COPY package.json ./
-COPY package-lock.json ./
+# Copy package.json and package-lock.json
+COPY package.json package-lock.json ./
 
-# Copy the rest of the application to the container's working directory
-COPY ./ ./
+# Install dependencies
+RUN npm ci --quiet
 
-# Install application dependencies using npm
-RUN npm i
+# Stage 2: Run the React app
+FROM node:14-alpine
 
-# Expose port 3000 so it can be accessed from outside the container
+# Set the working directory
+WORKDIR /app
+
+# Copy the installed dependencies from the previous stage
+COPY --from=install /app/node_modules ./node_modules
+
+# Copy the app's source code
+COPY . .
+
+# Expose port 3000 for the React app
 EXPOSE 3000
 
-# Start the application using npm when the container starts
-CMD ["npm", "run", "start"]
+# Start the React app using npm start
+CMD ["npm", "start"]
